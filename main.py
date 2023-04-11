@@ -38,8 +38,9 @@ def check_password():
 
 if check_password():
     st.title('Welcome to the application for FHTW Info-Center')
-    model_type = st.sidebar.selectbox('which model do you want to use?',['text-davinci-003','text-curie-001'])
-    tokens = st.sidebar.selectbox('how many tokens do you want to have?',[400,500,600,300,200,100,50])
+    st.write('text-davinci-003 is more powerful and accurate but text-curie-001 is faster')
+    model_type = st.sidebar.selectbox('Which model do you want to use?',['text-davinci-003','text-curie-001'])
+    tokens = st.sidebar.selectbox('How many tokens for response?',[400,500,600,300,200,100,50])
     email = st.text_input('please type your email text to the FH Technikum Wien Info-center:')
     if len(email)>10:
         url = "https://infocenterfhtw22023.azurewebsites.net/api/HttpTrigger1?name="+email+"&type="+model_type+"&n_tokens="+str(tokens)
