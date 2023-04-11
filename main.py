@@ -42,7 +42,7 @@ if check_password():
     tokens = st.sidebar.selectbox('how many tokens do you want to have?',[400,500,600,300,200,100,50])
     email = st.text_input('please type your email text to the FH Technikum Wien Info-center:')
     if len(email)>10:
-        url = "https://infocenterfhtw22023.azurewebsites.net/api/HttpTrigger1?name="+email+"&type="+model_type+"&n_tokens="+tokens
+        url = "https://infocenterfhtw22023.azurewebsites.net/api/HttpTrigger1?name="+email+"&type="+model_type+"&n_tokens="+str(tokens)
         result = requests.get(url=url)
         st.write(result.text)
     else:
