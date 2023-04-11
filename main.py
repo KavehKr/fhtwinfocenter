@@ -37,11 +37,9 @@ def check_password():
         return True
 
 if check_password():
-    st.write("Here goes your normal Streamlit app...")
-    st.button("Click me")
     st.title('Welcome to the application for FHTW Info-Center')
     model_type = st.sidebar.selectbox('which model do you want to use?',['text-davinci-003','text-curie-001'])
-    tokens = st.sidebar,selectbox('how many tokens do you want to have?',[400,500,600,300,200,100,50])
+    tokens = st.sidebar.selectbox('how many tokens do you want to have?',[400,500,600,300,200,100,50])
     email = st.text_input('please type your email text to the FH Technikum Wien Info-center:')
     if len(email)>10:
         url = "https://infocenterfhtw22023.azurewebsites.net/api/HttpTrigger1?name="+email+"&type="+model_type+"&number_tokens="+tokens
